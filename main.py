@@ -124,7 +124,7 @@ def scrape_jobspresso():
     jobs = []
     try:
         r = requests.get(url, timeout=10)
-        soup = BeautifulSoup(r.text, "html.parser")
+        soup = BeautifulSoup(r.text, "xml")
         for post in soup.select("article.job_listing")[:MAX_RESULTS]:
             title_el = post.select_one("h3")
             company_el = post.select_one("div.company")
